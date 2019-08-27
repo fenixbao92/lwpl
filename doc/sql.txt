@@ -1,0 +1,48 @@
+-- auto Generated on 2019-08-28
+-- DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`(
+	userId BIGINT (15) NOT NULL AUTO_INCREMENT COMMENT 'userId',
+	openId VARCHAR (200) COMMENT 'openId',
+	nickName VARCHAR (100) COMMENT 'nickName',
+	gender INT (11) COMMENT 'gender',
+	country VARCHAR (50) COMMENT 'country',
+	province VARCHAR (50) COMMENT 'province',
+	city VARCHAR (50) COMMENT 'city',
+	avatarUrl VARCHAR (50) COMMENT 'avatarUrl',
+	`language` VARCHAR (50) COMMENT 'language',
+	unionId VARCHAR (50) COMMENT 'unionId',
+	sessionKey VARCHAR (50) COMMENT 'sessionKey',
+	lastLoginTime DATETIME COMMENT 'lastLoginTime',
+	updateTime DATETIME COMMENT 'updateTime',
+	inviteUserId BIGINT (15) COMMENT 'inviteUserId',
+	PRIMARY KEY (userId)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'user';
+
+-- auto Generated on 2019-08-28
+-- DROP TABLE IF EXISTS give;
+CREATE TABLE give(
+    giveId BIGINT (15) NOT NULL AUTO_INCREMENT COMMENT 'giveId',
+    roundId BIGINT (15) COMMENT 'roundId',
+    fromPlayerId BIGINT (15) COMMENT 'fromPlayerId',
+    toPlayerId BIGINT (15) COMMENT 'toPlayerId',
+    unit INT (11) COMMENT 'unit',
+    PRIMARY KEY (giveId)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'give';
+
+CREATE TABLE round(
+    roundId BIGINT (15) NOT NULL AUTO_INCREMENT COMMENT 'roundId',
+    playId BIGINT (15) COMMENT 'playId',
+    finishCnt INT (11) COMMENT 'finishCnt',
+    PRIMARY KEY (roundId)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'round';
+
+-- auto Generated on 2019-08-28
+-- DROP TABLE IF EXISTS play;
+CREATE TABLE play(
+    playId BIGINT (15) NOT NULL AUTO_INCREMENT COMMENT 'playId',
+    playerCnt INT (11) COMMENT 'playerCnt',
+    unitPrice INT (11) COMMENT 'unitPrice',
+    `status` INT (11) COMMENT 'status',
+    PRIMARY KEY (playId)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'play';
+

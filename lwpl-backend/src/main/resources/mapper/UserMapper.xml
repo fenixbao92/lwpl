@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fenixbao92.lwpl.dao.UserMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.fenixbao92.lwpl.common.model.User">
+        <result column="userId" property="userId" jdbcType="BIGINT"/>
+        <result column="openId" property="openId" jdbcType="VARCHAR"/>
+        <result column="nickName" property="nickName" jdbcType="VARCHAR"/>
+        <result column="gender" property="gender" jdbcType="INTEGER"/>
+        <result column="country" property="country" jdbcType="VARCHAR"/>
+        <result column="province" property="province" jdbcType="VARCHAR"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+        <result column="avatarUrl" property="avatarUrl" jdbcType="VARCHAR"/>
+        <result column="language" property="language" jdbcType="VARCHAR"/>
+        <result column="unionId" property="unionId" jdbcType="VARCHAR"/>
+        <result column="sessionKey" property="sessionKey" jdbcType="VARCHAR"/>
+        <result column="lastLoginTime" property="lastLoginTime" jdbcType="TIMESTAMP"/>
+        <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="inviteUserId" property="inviteUserId" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        userId,
+        openId,
+        nickName,
+        gender,
+        country,
+        province,
+        city,
+        avatarUrl,
+        `language`,
+        unionId,
+        sessionKey,
+        lastLoginTime,
+        updateTime,
+        inviteUserId
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="user.userId">
+        INSERT INTO user (
+            userId,
+            openId,
+            nickName,
+            gender,
+            country,
+            province,
+            city,
+            avatarUrl,
+            `language`,
+            unionId,
+            sessionKey,
+            lastLoginTime,
+            updateTime,
+            inviteUserId
+        ) VALUES (
+            #{user.userId,jdbcType=BIGINT},
+            #{user.openId,jdbcType=VARCHAR},
+            #{user.nickName,jdbcType=VARCHAR},
+            #{user.gender,jdbcType=INTEGER},
+            #{user.country,jdbcType=VARCHAR},
+            #{user.province,jdbcType=VARCHAR},
+            #{user.city,jdbcType=VARCHAR},
+            #{user.avatarUrl,jdbcType=VARCHAR},
+            #{user.language,jdbcType=VARCHAR},
+            #{user.unionId,jdbcType=VARCHAR},
+            #{user.sessionKey,jdbcType=VARCHAR},
+            #{user.lastLoginTime,jdbcType=TIMESTAMP},
+            #{user.updateTime,jdbcType=TIMESTAMP},
+            #{user.inviteUserId,jdbcType=BIGINT}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="user.userId">
+        INSERT INTO user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="user.userId!=null"> userId,</if>
+            <if test="user.openId!=null"> openId,</if>
+            <if test="user.nickName!=null"> nickName,</if>
+            <if test="user.gender!=null"> gender,</if>
+            <if test="user.country!=null"> country,</if>
+            <if test="user.province!=null"> province,</if>
+            <if test="user.city!=null"> city,</if>
+            <if test="user.avatarUrl!=null"> avatarUrl,</if>
+            <if test="user.language!=null"> `language`,</if>
+            <if test="user.unionId!=null"> unionId,</if>
+            <if test="user.sessionKey!=null"> sessionKey,</if>
+            <if test="user.lastLoginTime!=null"> lastLoginTime,</if>
+            <if test="user.updateTime!=null"> updateTime,</if>
+            <if test="user.inviteUserId!=null"> inviteUserId,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="user.userId!=null">#{user.userId,jdbcType=BIGINT},
+            </if>
+            <if test="user.openId!=null">#{user.openId,jdbcType=VARCHAR},
+            </if>
+            <if test="user.nickName!=null">#{user.nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="user.gender!=null">#{user.gender,jdbcType=INTEGER},
+            </if>
+            <if test="user.country!=null">#{user.country,jdbcType=VARCHAR},
+            </if>
+            <if test="user.province!=null">#{user.province,jdbcType=VARCHAR},
+            </if>
+            <if test="user.city!=null">#{user.city,jdbcType=VARCHAR},
+            </if>
+            <if test="user.avatarUrl!=null">#{user.avatarUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="user.language!=null">#{user.language,jdbcType=VARCHAR},
+            </if>
+            <if test="user.unionId!=null">#{user.unionId,jdbcType=VARCHAR},
+            </if>
+            <if test="user.sessionKey!=null">#{user.sessionKey,jdbcType=VARCHAR},
+            </if>
+            <if test="user.lastLoginTime!=null">#{user.lastLoginTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="user.updateTime!=null">#{user.updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="user.inviteUserId!=null">#{user.inviteUserId,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO user (
+            userId,
+            openId,
+            nickName,
+            gender,
+            country,
+            province,
+            city,
+            avatarUrl,
+            `language`,
+            unionId,
+            sessionKey,
+            lastLoginTime,
+            updateTime,
+            inviteUserId
+        )VALUES
+        <foreach collection="users" item="user" index="index" separator=",">
+            (
+            #{user.userId,jdbcType=BIGINT},
+            #{user.openId,jdbcType=VARCHAR},
+            #{user.nickName,jdbcType=VARCHAR},
+            #{user.gender,jdbcType=INTEGER},
+            #{user.country,jdbcType=VARCHAR},
+            #{user.province,jdbcType=VARCHAR},
+            #{user.city,jdbcType=VARCHAR},
+            #{user.avatarUrl,jdbcType=VARCHAR},
+            #{user.language,jdbcType=VARCHAR},
+            #{user.unionId,jdbcType=VARCHAR},
+            #{user.sessionKey,jdbcType=VARCHAR},
+            #{user.lastLoginTime,jdbcType=TIMESTAMP},
+            #{user.updateTime,jdbcType=TIMESTAMP},
+            #{user.inviteUserId,jdbcType=BIGINT}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE user
+        <set>
+            <if test="user.openId != null"> openId= #{user.openId,jdbcType=VARCHAR},</if>
+            <if test="user.nickName != null"> nickName= #{user.nickName,jdbcType=VARCHAR},</if>
+            <if test="user.gender != null"> gender= #{user.gender,jdbcType=INTEGER},</if>
+            <if test="user.country != null"> country= #{user.country,jdbcType=VARCHAR},</if>
+            <if test="user.province != null"> province= #{user.province,jdbcType=VARCHAR},</if>
+            <if test="user.city != null"> city= #{user.city,jdbcType=VARCHAR},</if>
+            <if test="user.avatarUrl != null"> avatarUrl= #{user.avatarUrl,jdbcType=VARCHAR},</if>
+            <if test="user.language != null"> `language`= #{user.language,jdbcType=VARCHAR},</if>
+            <if test="user.unionId != null"> unionId= #{user.unionId,jdbcType=VARCHAR},</if>
+            <if test="user.sessionKey != null"> sessionKey= #{user.sessionKey,jdbcType=VARCHAR},</if>
+            <if test="user.lastLoginTime != null"> lastLoginTime= #{user.lastLoginTime,jdbcType=TIMESTAMP},</if>
+            <if test="user.updateTime != null"> updateTime= #{user.updateTime,jdbcType=TIMESTAMP},</if>
+            <if test="user.inviteUserId != null"> inviteUserId= #{user.inviteUserId,jdbcType=BIGINT}</if>
+        </set>
+        WHERE userId = #{user.userId,jdbcType=BIGINT}
+    </update>
+
+<!--auto generated by MybatisCodeHelper on 2019-08-28-->
+    <select id="findByAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where 1=1
+        <if test="userId!=null">
+            and userId=#{userId,jdbcType=BIGINT}
+        </if>
+        <if test="openId!=null and openId!=''">
+            and openId=#{openId,jdbcType=VARCHAR}
+        </if>
+        <if test="nickName!=null and nickName!=''">
+            and nickName=#{nickName,jdbcType=VARCHAR}
+        </if>
+        <if test="gender!=null">
+            and gender=#{gender,jdbcType=INTEGER}
+        </if>
+        <if test="country!=null and country!=''">
+            and country=#{country,jdbcType=VARCHAR}
+        </if>
+        <if test="province!=null and province!=''">
+            and province=#{province,jdbcType=VARCHAR}
+        </if>
+        <if test="city!=null and city!=''">
+            and city=#{city,jdbcType=VARCHAR}
+        </if>
+        <if test="avatarUrl!=null and avatarUrl!=''">
+            and avatarUrl=#{avatarUrl,jdbcType=VARCHAR}
+        </if>
+        <if test="language!=null and language!=''">
+            and `language`=#{language,jdbcType=VARCHAR}
+        </if>
+        <if test="unionId!=null and unionId!=''">
+            and unionId=#{unionId,jdbcType=VARCHAR}
+        </if>
+        <if test="sessionKey!=null and sessionKey!=''">
+            and sessionKey=#{sessionKey,jdbcType=VARCHAR}
+        </if>
+        <if test="lastLoginTime!=null">
+            and lastLoginTime=#{lastLoginTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="updateTime!=null">
+            and updateTime=#{updateTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="inviteUserId!=null">
+            and inviteUserId=#{inviteUserId,jdbcType=BIGINT}
+        </if>
+        <if test="offset!=null and limit!=null">
+            limit #{offset},#{limit}
+        </if>
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-08-28-->
+    <select id="findCntByAll" resultType="long">
+        select
+        count(1)
+        from user
+        where 1=1
+        <if test="userId!=null">
+            and userId=#{userId,jdbcType=BIGINT}
+        </if>
+        <if test="openId!=null and openId!=''">
+            and openId=#{openId,jdbcType=VARCHAR}
+        </if>
+        <if test="nickName!=null and nickName!=''">
+            and nickName=#{nickName,jdbcType=VARCHAR}
+        </if>
+        <if test="gender!=null">
+            and gender=#{gender,jdbcType=INTEGER}
+        </if>
+        <if test="country!=null and country!=''">
+            and country=#{country,jdbcType=VARCHAR}
+        </if>
+        <if test="province!=null and province!=''">
+            and province=#{province,jdbcType=VARCHAR}
+        </if>
+        <if test="city!=null and city!=''">
+            and city=#{city,jdbcType=VARCHAR}
+        </if>
+        <if test="avatarUrl!=null and avatarUrl!=''">
+            and avatarUrl=#{avatarUrl,jdbcType=VARCHAR}
+        </if>
+        <if test="language!=null and language!=''">
+            and `language`=#{language,jdbcType=VARCHAR}
+        </if>
+        <if test="unionId!=null and unionId!=''">
+            and unionId=#{unionId,jdbcType=VARCHAR}
+        </if>
+        <if test="sessionKey!=null and sessionKey!=''">
+            and sessionKey=#{sessionKey,jdbcType=VARCHAR}
+        </if>
+        <if test="lastLoginTime!=null">
+            and lastLoginTime=#{lastLoginTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="updateTime!=null">
+            and updateTime=#{updateTime,jdbcType=TIMESTAMP}
+        </if>
+        <if test="inviteUserId!=null">
+            and inviteUserId=#{inviteUserId,jdbcType=BIGINT}
+        </if>
+        <if test="offset!=null and limit!=null">
+            limit #{offset},#{limit}
+        </if>
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-08-28-->
+    <delete id="deleteByUserId">
+        delete from  user
+        where userId=#{userId,jdbcType=BIGINT}
+    </delete>
+
+</mapper>
+
