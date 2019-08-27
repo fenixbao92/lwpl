@@ -5,6 +5,7 @@
     <resultMap id="BaseResultMap" type="com.fenixbao92.lwpl.common.model.Play">
         <result column="playId" property="playId" jdbcType="BIGINT"/>
         <result column="playerCnt" property="playerCnt" jdbcType="INTEGER"/>
+        <result column="code" property="code" jdbcType="INTEGER"/>
         <result column="unitPrice" property="unitPrice" jdbcType="INTEGER"/>
         <result column="status" property="status" jdbcType="INTEGER"/>
     </resultMap>
@@ -13,6 +14,7 @@
     <sql id="Base_Column_List">
         playId,
         playerCnt,
+        code,
         unitPrice,
         `status`
     </sql>
@@ -22,11 +24,13 @@
         INSERT INTO play (
             playId,
             playerCnt,
+            code,
             unitPrice,
             `status`
         ) VALUES (
             #{play.playId,jdbcType=BIGINT},
             #{play.playerCnt,jdbcType=INTEGER},
+            #{play.code,jdbcType=INTEGER},
             #{play.unitPrice,jdbcType=INTEGER},
             #{play.status,jdbcType=INTEGER}
         )
@@ -38,6 +42,7 @@
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="play.playId!=null"> playId,</if>
             <if test="play.playerCnt!=null"> playerCnt,</if>
+            <if test="play.code!=null"> code,</if>
             <if test="play.unitPrice!=null"> unitPrice,</if>
             <if test="play.status!=null"> `status`,</if>
         </trim>
@@ -46,6 +51,8 @@
             <if test="play.playId!=null">#{play.playId,jdbcType=BIGINT},
             </if>
             <if test="play.playerCnt!=null">#{play.playerCnt,jdbcType=INTEGER},
+            </if>
+            <if test="play.code!=null">#{play.code,jdbcType=INTEGER},
             </if>
             <if test="play.unitPrice!=null">#{play.unitPrice,jdbcType=INTEGER},
             </if>
@@ -59,6 +66,7 @@
         INSERT INTO play (
             playId,
             playerCnt,
+            code,
             unitPrice,
             `status`
         )VALUES
@@ -66,6 +74,7 @@
             (
             #{play.playId,jdbcType=BIGINT},
             #{play.playerCnt,jdbcType=INTEGER},
+            #{play.code,jdbcType=INTEGER},
             #{play.unitPrice,jdbcType=INTEGER},
             #{play.status,jdbcType=INTEGER}
             )
@@ -77,6 +86,7 @@
         UPDATE play
         <set>
             <if test="play.playerCnt != null"> playerCnt= #{play.playerCnt,jdbcType=INTEGER},</if>
+            <if test="play.code != null"> code= #{play.code,jdbcType=INTEGER},</if>
             <if test="play.unitPrice != null"> unitPrice= #{play.unitPrice,jdbcType=INTEGER},</if>
             <if test="play.status != null"> `status`= #{play.status,jdbcType=INTEGER}</if>
         </set>
@@ -94,6 +104,9 @@
         </if>
         <if test="playerCnt!=null">
             and playerCnt=#{playerCnt,jdbcType=INTEGER}
+        </if>
+        <if test="code!=null">
+            and code=#{code,jdbcType=INTEGER}
         </if>
         <if test="unitPrice!=null">
             and unitPrice=#{unitPrice,jdbcType=INTEGER}
@@ -114,6 +127,9 @@
         </if>
         <if test="playerCnt!=null">
             and playerCnt=#{playerCnt,jdbcType=INTEGER}
+        </if>
+        <if test="code!=null">
+            and code=#{code,jdbcType=INTEGER}
         </if>
         <if test="unitPrice!=null">
             and unitPrice=#{unitPrice,jdbcType=INTEGER}

@@ -41,6 +41,7 @@ CREATE TABLE round(
 CREATE TABLE play(
     playId BIGINT (15) NOT NULL AUTO_INCREMENT COMMENT 'playId',
     playerCnt INT (11) COMMENT 'playerCnt',
+    code INT (11) COMMENT 'code',
     unitPrice INT (11) COMMENT 'unitPrice',
     `status` INT (11) COMMENT 'status',
     PRIMARY KEY (playId)
