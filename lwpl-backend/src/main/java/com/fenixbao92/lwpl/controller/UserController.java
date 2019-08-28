@@ -4,6 +4,8 @@ import com.fenixbao92.lwpl.common.model.User;
 import com.fenixbao92.lwpl.common.vo.UserVo;
 import com.fenixbao92.lwpl.config.redis.RedisTool;
 import com.fenixbao92.lwpl.service.UserBusinessService;
+import com.google.common.base.Joiner;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
 
     @Resource
@@ -23,6 +26,7 @@ public class UserController {
 
     @Resource
     RedisTool redisTool;
+
     @RequestMapping(value = "/page")
     public Map<String, Object> getPage(UserVo userVo) {
         List<UserVo> userVoList = userBusinessService.getList(userVo);
@@ -58,5 +62,13 @@ public class UserController {
     @RequestMapping(value = "/getRedis", method = RequestMethod.GET)
     public String testRedis() {
         return redisTool.get("value");
+    }
+
+    //////////////
+    @RequestMapping(value = "/push")
+    public String push(UserVo userVo) {
+        log.info(Joiner.on(":").join("[/user/push]",userVo));
+        userBusinessService.push(userVo);
+        return "success";
     }
 }
