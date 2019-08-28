@@ -1,2 +1,2 @@
-http://localhost:8084/user/add?openId=332dd3&name=fenix2
-http://localhost:8084/user/page
+http://localhost:8088/user/add?openId=332dd3&name=fenix2
+http://localhost:8088/user/page
