@@ -1,2 +1,6 @@
-http://localhost:8088/user/add?openId=332dd3&name=fenix2
+http://localhost:8088/user/add?openId=332dd3&nickName=fenix3
 http://localhost:8088/user/page
+39.105.25.142
+http://lwpl.fenixbao92.com/user/add?openId=332dd3&name=fenix2
+https://lwpl.fenixbao92.com/user/add?openId=332dd3&nickName=fenix4
+https://lwpl.fenixbao92.com/user/page

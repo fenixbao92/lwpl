@@ -17,6 +17,7 @@
         <result column="lastLoginTime" property="lastLoginTime" jdbcType="TIMESTAMP"/>
         <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP"/>
         <result column="inviteUserId" property="inviteUserId" jdbcType="BIGINT"/>
+        <result column="currentPlayId" property="currentPlayId" jdbcType="BIGINT"/>
     </resultMap>
 
     <!--auto generated Code-->
@@ -34,7 +35,8 @@
         sessionKey,
         lastLoginTime,
         updateTime,
-        inviteUserId
+        inviteUserId,
+        currentPlayId
     </sql>
 
     <!--auto generated Code-->
@@ -53,7 +55,8 @@
             sessionKey,
             lastLoginTime,
             updateTime,
-            inviteUserId
+            inviteUserId,
+            currentPlayId
         ) VALUES (
             #{user.userId,jdbcType=BIGINT},
             #{user.openId,jdbcType=VARCHAR},
@@ -68,7 +71,8 @@
             #{user.sessionKey,jdbcType=VARCHAR},
             #{user.lastLoginTime,jdbcType=TIMESTAMP},
             #{user.updateTime,jdbcType=TIMESTAMP},
-            #{user.inviteUserId,jdbcType=BIGINT}
+            #{user.inviteUserId,jdbcType=BIGINT},
+            #{user.currentPlayId,jdbcType=BIGINT}
         )
     </insert>
 
@@ -90,6 +94,7 @@
             <if test="user.lastLoginTime!=null"> lastLoginTime,</if>
             <if test="user.updateTime!=null"> updateTime,</if>
             <if test="user.inviteUserId!=null"> inviteUserId,</if>
+            <if test="user.currentPlayId!=null"> currentPlayId,</if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -121,6 +126,8 @@
             </if>
             <if test="user.inviteUserId!=null">#{user.inviteUserId,jdbcType=BIGINT},
             </if>
+            <if test="user.currentPlayId!=null">#{user.currentPlayId,jdbcType=BIGINT},
+            </if>
         </trim>
     </insert>
 
@@ -140,7 +147,8 @@
             sessionKey,
             lastLoginTime,
             updateTime,
-            inviteUserId
+            inviteUserId,
+            currentPlayId
         )VALUES
         <foreach collection="users" item="user" index="index" separator=",">
             (
@@ -157,7 +165,8 @@
             #{user.sessionKey,jdbcType=VARCHAR},
             #{user.lastLoginTime,jdbcType=TIMESTAMP},
             #{user.updateTime,jdbcType=TIMESTAMP},
-            #{user.inviteUserId,jdbcType=BIGINT}
+            #{user.inviteUserId,jdbcType=BIGINT},
+            #{user.currentPlayId,jdbcType=BIGINT}
             )
         </foreach>
     </insert>
@@ -178,7 +187,8 @@
             <if test="user.sessionKey != null"> sessionKey= #{user.sessionKey,jdbcType=VARCHAR},</if>
             <if test="user.lastLoginTime != null"> lastLoginTime= #{user.lastLoginTime,jdbcType=TIMESTAMP},</if>
             <if test="user.updateTime != null"> updateTime= #{user.updateTime,jdbcType=TIMESTAMP},</if>
-            <if test="user.inviteUserId != null"> inviteUserId= #{user.inviteUserId,jdbcType=BIGINT}</if>
+            <if test="user.inviteUserId != null"> inviteUserId= #{user.inviteUserId,jdbcType=BIGINT},</if>
+            <if test="user.currentPlayId != null"> inviteUserId= #{user.currentPlayId,jdbcType=BIGINT}</if>
         </set>
         WHERE userId = #{user.userId,jdbcType=BIGINT}
     </update>
@@ -230,6 +240,9 @@
         </if>
         <if test="inviteUserId!=null">
             and inviteUserId=#{inviteUserId,jdbcType=BIGINT}
+        </if>
+        <if test="currentPlayId!=null">
+            and currentPlayId=#{currentPlayId,jdbcType=BIGINT}
         </if>
         <if test="offset!=null and limit!=null">
             limit #{offset},#{limit}
@@ -283,6 +296,9 @@
         </if>
         <if test="inviteUserId!=null">
             and inviteUserId=#{inviteUserId,jdbcType=BIGINT}
+        </if>
+        <if test="currentPlayId!=null">
+            and currentPlayId=#{currentPlayId,jdbcType=BIGINT}
         </if>
         <if test="offset!=null and limit!=null">
             limit #{offset},#{limit}

@@ -46,6 +46,22 @@ Page({
     }
   },
 
+  createPlay: function(){
+    // const url = `/pages/post/post?id=${this.data.id}`;
+    const url = `/pages/createPlay/createPlay`;
+    wx.navigateTo({
+      url,
+    });
+  },
+
+  joinPlay:function(){
+    // const url = `/pages/post/post?id=${this.data.id}`;
+    const url = `/pages/joinPlay/joinPlay`;
+    wx.navigateTo({
+      url,
+    });
+  },
+
   // 上传图片
   doUpload: function () {
     // 选择图片

@@ -8,13 +8,14 @@ CREATE TABLE `user`(
 	country VARCHAR (50) COMMENT 'country',
 	province VARCHAR (50) COMMENT 'province',
 	city VARCHAR (50) COMMENT 'city',
-	avatarUrl VARCHAR (50) COMMENT 'avatarUrl',
+	avatarUrl VARCHAR (200) COMMENT 'avatarUrl',
 	`language` VARCHAR (50) COMMENT 'language',
 	unionId VARCHAR (50) COMMENT 'unionId',
 	sessionKey VARCHAR (50) COMMENT 'sessionKey',
 	lastLoginTime DATETIME COMMENT 'lastLoginTime',
 	updateTime DATETIME COMMENT 'updateTime',
 	inviteUserId BIGINT (15) COMMENT 'inviteUserId',
+	currentPlayId BIGINT (15) COMMENT 'currentPlayId',
 	PRIMARY KEY (userId)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'user';
 

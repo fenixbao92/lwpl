@@ -20,6 +20,7 @@ public class BusinessException extends RuntimeException {
         super(description);
         code = BusinessExceptionEnum.DEFAULT_ERROR.getCode();
     }
+
     public int getCode() {
         return code;
     }

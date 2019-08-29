@@ -28,6 +28,7 @@ public class UserVo {
     private Date updateTime;
 
     private Long inviteUserId;
+    private Long currentPlayId;
 
     private Long offset;
     private Integer limit;
